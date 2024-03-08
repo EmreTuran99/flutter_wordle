@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_wordle/utils/enums.dart';
 import 'package:flutter_wordle/utils/values.dart';
-import 'package:flutter_wordle/widgets/keyboard_box.dart';
+import 'package:flutter_wordle/widgets/keyboard/keyboard_box.dart';
 
 class ScreenKeyboard extends StatelessWidget {
   const ScreenKeyboard({super.key});

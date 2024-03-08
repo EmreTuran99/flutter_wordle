@@ -1,5 +1,7 @@
 
 import 'package:adaptive_theme/adaptive_theme.dart';
+import 'package:flip_card/flip_card.dart';
+import 'package:flip_card/flip_card_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_wordle/utils/enums.dart';
 import 'package:flutter_wordle/utils/methods.dart';
@@ -15,21 +17,20 @@ class LetterInputBox extends StatefulWidget {
 
 class LetterInputBoxState extends State<LetterInputBox> {
 
-  Color? revealColor;
+  FlipCardController flipCtrl = FlipCardController();
+  Color revealColor = Colors.black;
 
   void revealWords(Color color){
 
     setState(() {
       revealColor = color;
     });
+    flipCtrl.toggleCard();
   }
 
-    @override
-  Widget build(BuildContext context) {
-    
-    return AnimatedContainer(
-      duration: const Duration(milliseconds: 450),
-      curve: Curves.bounceIn,
+  Widget theBox(bool isRevealed){
+
+    return Container(
       margin: const EdgeInsets.symmetric(horizontal: 4),
       height: 56,
       width: 56,
@@ -37,10 +38,10 @@ class LetterInputBoxState extends State<LetterInputBox> {
         borderRadius: BorderRadius.circular(6),
         shape: BoxShape.rectangle,
         border: Border.all(
-          color: revealColor ?? (AdaptiveTheme.of(context).mode.isLight ? Colors.black : Colors.white),
+          color: isRevealed ?  revealColor : (AdaptiveTheme.of(context).mode.isLight ? Colors.black : Colors.white),
           width: 2
         ),
-        color: revealColor
+        color: isRevealed ? revealColor : null
       ),
       child: Center(
         child: Text(
@@ -49,11 +50,23 @@ class LetterInputBoxState extends State<LetterInputBox> {
             fontSize: 28, 
             fontWeight: FontWeight.bold,
             fontFamily: TextFonts.kanit.value,
-            color: revealColor != null ? Colors.black : revealColor 
+            color: isRevealed ? Colors.black : null 
           ),
           textAlign: TextAlign.center,
         )
       ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    
+    return FlipCard(
+      controller: flipCtrl,
+      flipOnTouch: false,
+      direction: FlipDirection.VERTICAL,
+      back: theBox(true),
+      front: theBox(false),
     );
   }
 }

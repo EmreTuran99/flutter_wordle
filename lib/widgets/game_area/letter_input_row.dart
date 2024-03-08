@@ -7,7 +7,7 @@ import 'package:flutter_wordle/utils/enums.dart';
 import 'package:flutter_wordle/utils/methods.dart';
 import 'package:flutter_wordle/utils/providers.dart';
 import 'package:flutter_wordle/utils/values.dart';
-import 'package:flutter_wordle/widgets/letter_input_box.dart';
+import 'package:flutter_wordle/widgets/game_area/letter_input_box.dart';
 
 class LetterInputRow extends ConsumerStatefulWidget {
 

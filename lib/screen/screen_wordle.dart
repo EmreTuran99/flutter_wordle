@@ -8,10 +8,10 @@ import 'package:flutter_wordle/services/theme_service.dart';
 import 'package:flutter_wordle/utils/enums.dart';
 import 'package:flutter_wordle/utils/providers.dart';
 import 'package:flutter_wordle/utils/values.dart';
+import 'package:flutter_wordle/widgets/game_area/letter_input_row.dart';
 import 'package:flutter_wordle/widgets/game_dialog.dart';
-import 'package:flutter_wordle/widgets/letter_input_row.dart';
-import 'package:flutter_wordle/widgets/screen_keyboard.dart';
-import 'package:flutter_wordle/widgets/vertical_space.dart';
+import 'package:flutter_wordle/widgets/general/vertical_space.dart';
+import 'package:flutter_wordle/widgets/keyboard/screen_keyboard.dart';
 
 class WordleScreen extends ConsumerStatefulWidget {
   const WordleScreen({super.key});

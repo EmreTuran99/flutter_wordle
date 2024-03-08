@@ -5,12 +5,12 @@ import 'package:flutter_wordle/utils/enums.dart';
 import 'package:flutter_wordle/utils/methods.dart';
 import 'package:flutter_wordle/utils/providers.dart';
 import 'package:flutter_wordle/utils/styling.dart';
-import 'package:flutter_wordle/widgets/vertical_space.dart';
+import 'package:flutter_wordle/widgets/general/vertical_space.dart';
 
 class GameDialog extends ConsumerStatefulWidget {
 
-  VoidCallback onNewGameTap;
-  GameDialog(this.onNewGameTap, {super.key});
+  final VoidCallback onNewGameTap;
+  const GameDialog(this.onNewGameTap, {super.key});
 
   @override
   ConsumerState<GameDialog> createState() => _GameDialogState();
